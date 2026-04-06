@@ -1,0 +1,19 @@
+<svg xmlns="http://www.svg.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="luxury-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#512966" />
+      <stop offset="50%" stop-color="#bc2c72" />
+      <stop offset="100%" stop-color="#ff7e67" />
+    </linearGradient>
+  </defs>
+  <g fill="url(#luxury-grad)">
+    <!-- Small bird head/body shape pointing left/up -->
+    <path d="M120,160 Q140,150 150,165 Q135,175 120,160 Z" />
+    <!-- Wing 1 (Top, longest) -->
+    <path d="M150,165 Q180,110 200,80 Q190,140 150,170 Z" />
+    <!-- Wing 2 (Middle) -->
+    <path d="M150,170 Q190,140 220,130 Q200,170 160,180 Z" />
+    <!-- Wing 3 (Bottom) -->
+    <path d="M160,180 Q200,170 230,175 Q210,195 170,190 Z" />
+  </g>
+</svg>

@@ -1,0 +1,123 @@
+.section {
+  padding: 120px 5%;
+  background: var(--color-pearl);
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.subTitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-brand-magenta);
+  font-weight: 400;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--color-deep-space);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.card {
+  padding: 40px;
+  border-radius: 24px;
+  background: rgba(29, 9, 32, 0.02);
+  border: 1px solid rgba(29, 9, 32, 0.05);
+  transition: all 0.4s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card:hover {
+  background: white;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(29, 9, 32, 0.06);
+  border-color: rgba(188, 44, 114, 0.2);
+}
+
+.iconWrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-deep-space);
+  margin-bottom: 24px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+}
+
+.card:hover .iconWrapper {
+  color: white;
+  background: var(--gradient-luxury);
+  transform: scale(1.1);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-deep-space);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(29, 9, 32, 0.6);
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-brand-magenta);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.linkIcon {
+  transition: transform 0.3s ease;
+}
+
+.link:hover .linkIcon {
+  transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

@@ -1,0 +1,65 @@
+# Implementation Plan: World-Class UI/UX Refinement
+
+This plan addresses the feedback regarding typography inconsistencies, contrast errors, and the general "feel" of the Icarus platform. The goal is to move from a "good" first iteration to a "Senior-level" premium experience.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Dynamic Navbar Behavior**: We will implement a scroll-listener to transition the Navbar from transparent to a "Frosted Crystal" glassmorphism when scrolling past the hero. 
+> **Typography Shift**: I propose using a semi-bold serif for major headings and increasing body text size/line-height for better "breathability".
+
+## Proposed Changes
+
+### [Component] Global Design System & Typography
+#### [MODIFY] [globals.css](file:///c:/Users/hp/Desktop/icarus/src/app/globals.css)
+*   Update serif heading tokens to use `font-weight: 600` and `letter-spacing: -0.02em`.
+*   Increase base line-height for body text from 1.5 to 1.7.
+*   Refine `glass` and `glass-dark` utilities with higher `backdrop-blur` (16px+) and a `0.5px` stroke for the "Frosted Crystal" look.
+*   Add a `section-padding` utility that uses `clamp` for responsive, generous whitespace.
+
+---
+
+### [Component] Home Hero & Contrast
+#### [MODIFY] [Hero.tsx](file:///c:/Users/hp/Desktop/icarus/src/components/features/home/Hero.tsx)
+#### [MODIFY] [Hero.module.css](file:///c:/Users/hp/Desktop/icarus/src/components/features/home/Hero.module.css)
+*   Add a `linear-gradient` overlay (scrim) at the top and bottom of the hero image to ensure white text and the navbar are perfectly readable.
+*   Reposition text slightly to avoid covering the "hero" of the photography (the plane/villas).
+
+---
+
+### [Component] Dynamic Navigation
+#### [MODIFY] [Navbar.tsx](file:///c:/Users/hp/Desktop/icarus/src/components/layout/Navbar.tsx)
+#### [MODIFY] [Navbar.module.css](file:///c:/Users/hp/Desktop/icarus/src/components/layout/Navbar.module.css)
+*   Implement a `useScroll` hook or scroll listener (Framer Motion `useScroll`) to detect when the user has scrolled.
+*   Transition the navbar background, border, and text color based on the scroll state (e.g., from white text and transparent bg to navy text and frosted bg).
+
+---
+
+### [Component] Property & Destination Cards
+#### [MODIFY] [PropertyCard.tsx](file:///c:/Users/hp/Desktop/icarus/src/components/features/homes/PropertyCard.tsx)
+#### [MODIFY] [DestinationGallery.tsx](file:///c:/Users/hp/Desktop/icarus/src/components/features/home/DestinationGallery.tsx)
+*   Refine card shadows to be "softer" and more expansive.
+*   Update metadata typography for better hierarchy.
+*   Replace standard buttons with a custom-styled "Luxury" button component.
+
+---
+
+### [Component] Layout Transitions
+#### [MODIFY] [page.tsx](file:///c:/Users/hp/Desktop/icarus/src/app/page.tsx)
+*   Better integrate the `WavyDivider` components to ensure smooth, natural flows between sections rather than "boxy" cuts.
+
+## Open Questions
+
+1. **Brand Voice**: Should we lean more into the "Adventurous Luxury" (bold, semi-bold) or "Minimal Luxury" (thin, elegant)? Current feedback suggests moving towards bolder, more readable fonts.
+2. **Iconography**: Do you have a preference for icon style (e.g., outlined vs. filled gold)? I propose a refined outlined style for better contrast.
+
+## Verification Plan
+
+### Automated Tests
+*   Run `npm run build` to ensure no regressions in routing or exports.
+*   Run `npm run lint` for accessibility and convention checks.
+
+### Manual Verification
+*   **Contrast Check**: Verify WCAG compliance on the hero text using Chrome DevTools.
+*   **Scroll Test**: Verify the Navbar transition is smooth (no flickering) across all pages.
+*   **Responsive Test**: Ensure generous padding remains balanced on mobile devices.

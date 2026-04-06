@@ -1,0 +1,26 @@
+.magneticButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 4px 14px rgba(232, 139, 84, 0.4);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.magneticButton:hover {
+  box-shadow: 0 6px 20px rgba(232, 139, 84, 0.6);
+}
+
+:global(.glass).magneticButton {
+  background-color: rgba(253, 252, 240, 0.1);
+  color: var(--color-pearl);
+  box-shadow: none;
+}

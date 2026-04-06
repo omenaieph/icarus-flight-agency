@@ -1,0 +1,55 @@
+
+> icarus@0.1.0 lint
+> eslint
+
+
+C:\Users\hp\Desktop\icarus\crop.js
+  1:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\hp\Desktop\icarus\crop2.js
+  1:15  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:7   warning  'fs' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  2:12  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\hp\Desktop\icarus\src\app\about\page.tsx
+  35:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\hp\Desktop\icarus\src\app\homes\page.tsx
+   6:10  warning  'Bed' is defined but never used                                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+   6:15  warning  'Bath' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+   6:21  warning  'Users' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  99:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\hp\Desktop\icarus\src\app\services\page.tsx
+  76:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\hp\Desktop\icarus\src\components\features\home\DestinationGallery.tsx
+  74:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\hp\Desktop\icarus\src\components\features\home\IcarusHomesSnippet.tsx
+  78:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\hp\Desktop\icarus\src\components\features\home\TestimonialsEditorial.tsx
+  98:15  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  98:31  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\hp\Desktop\icarus\src\components\layout\CustomCursor.tsx
+  27:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\hp\Desktop\icarus\src\components\layout\CustomCursor.tsx:27:9
+  25 |       
+  26 |       if (isDesktop || possessesHover) {
+> 27 |         setIsPointerExt(true);
+     |         ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  28 |         
+  29 |         const updateMousePosition = (e: MouseEvent) => {
+  30 |           mouseX.set(e.clientX);  react-hooks/set-state-in-effect
+
+Γ£û 15 problems (6 errors, 9 warnings)
+

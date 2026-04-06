@@ -1,0 +1,103 @@
+.container {
+  position: relative;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(29, 9, 32, 0.05);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.progressBg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: 999px;
+  background: var(--gradient-luxury);
+}
+
+.dragHandle {
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  cursor: grab;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.iconButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-deep-space);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(29, 9, 32, 0.2);
+  transition: transform 0.2s;
+}
+
+.iconButtonDragging {
+  transform: scale(1.05);
+}
+
+.completedContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.completedButton {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--gradient-luxury);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(188, 44, 114, 0.2);
+}
+
+.placeholderText {
+  position: absolute;
+  z-index: 1;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: rgba(29, 9, 32, 0.5);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px; /* Offset for the button */
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

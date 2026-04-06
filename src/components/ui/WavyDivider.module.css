@@ -1,0 +1,25 @@
+.divider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 5;
+  margin-top: -1px;
+}
+
+.divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 80px;
+}
+
+.flip {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .divider svg {
+    height: 40px;
+  }
+}

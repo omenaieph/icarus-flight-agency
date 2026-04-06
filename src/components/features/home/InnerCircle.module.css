@@ -1,0 +1,128 @@
+.section {
+  position: relative;
+  padding: 140px 5%;
+  background-color: var(--color-deep-space);
+  overflow: hidden;
+  text-align: center;
+  color: white;
+}
+
+/* Subtle glowing background effect */
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(188, 44, 114, 0.15) 0%, rgba(29, 9, 32, 0) 70%);
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.subTitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-amber);
+  font-weight: 400;
+  display: block;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 4.5rem;
+  font-weight: 400;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+  color: var(--color-pearl);
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto 48px auto;
+}
+
+.form {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.inputWrapper {
+  flex: 1;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: var(--font-montserrat);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(188, 44, 114, 0.5);
+  box-shadow: 0 0 20px rgba(188, 44, 114, 0.2);
+}
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 99px;
+  background: white;
+  color: var(--color-deep-space);
+  border: none;
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+  
+  .form {
+    flex-direction: column;
+  }
+  
+  .inputWrapper, .submitBtn {
+    width: 100%;
+  }
+}

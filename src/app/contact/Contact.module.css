@@ -1,0 +1,210 @@
+.contactSection {
+  padding: 100px 5%;
+  background: var(--color-pearl);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+}
+
+.formCard {
+  background: white;
+  padding: 60px;
+  border-radius: 32px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+}
+
+.formCard h2 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--color-deep-space);
+  margin-bottom: 40px;
+}
+
+.formCard h2 .accent {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
+  padding: 0.1em 0.1em;
+  margin: -0.1em -0.1em;
+  display: inline-block;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-deep-space);
+}
+
+.inputGroup input, .inputGroup select, .inputGroup textarea {
+  padding: 14px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  background: var(--color-pearl);
+  transition: all 0.3s ease;
+}
+
+.inputGroup input:focus, .inputGroup select:focus, .inputGroup textarea:focus {
+  outline: none;
+  border-color: var(--color-brand-magenta);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(188, 44, 114, 0.1);
+}
+
+.submitBtn {
+  background: var(--gradient-luxury);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  box-shadow: 0 10px 20px rgba(188, 44, 114, 0.2);
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(188, 44, 114, 0.3);
+}
+
+.infoCol {
+  display: flex;
+}
+
+.infoCard {
+  background: var(--color-deep-space);
+  color: white;
+  padding: 60px;
+  border-radius: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.infoCard h3 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 24px;
+}
+
+.infoCard p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+
+.infoItems {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.05); /* Soft transparent background */
+  color: var(--color-brand-magenta);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoText h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: white;
+}
+
+.infoText span {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 40px;
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-brand-magenta);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-brand-magenta);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-brand-magenta);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .formCard, .infoCard {
+    padding: 40px 24px;
+  }
+  
+  .formCard h2 {
+    font-size: 2.5rem;
+  }
+}

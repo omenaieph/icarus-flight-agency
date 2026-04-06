@@ -1,0 +1,129 @@
+.servicesSection {
+  padding: 100px 5%;
+  background: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.serviceRow {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 150px;
+}
+
+/* Zig-zag: every even row is reversed */
+.serviceRow:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.imageCol {
+  flex: 1;
+}
+
+.contentCol {
+  flex: 1;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.05);
+}
+
+.iconOverlay {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: var(--gradient-luxury);
+  color: white;
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: 0 20px 40px rgba(188, 44, 114, 0.3);
+  z-index: 2;
+}
+
+.contentCol h2 {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--color-deep-space);
+  margin-bottom: 24px;
+}
+
+.description {
+  font-size: 1.15rem;
+  color: rgba(29, 9, 32, 0.7);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  color: var(--color-deep-space);
+}
+
+.check {
+  color: var(--color-brand-magenta);
+}
+
+.ctaBtn {
+  background: var(--color-deep-space);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.ctaBtn:hover {
+  background: var(--gradient-luxury);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .serviceRow, .serviceRow:nth-child(even) {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentCol h2 {
+    font-size: 2.5rem;
+  }
+  
+  .imageCol .image {
+    height: 350px;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
