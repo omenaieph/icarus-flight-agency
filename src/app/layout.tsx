@@ -6,6 +6,7 @@ import { PageTransitionProvider } from "@/components/providers/PageTransition";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/layout/CustomCursor";
+import { Banner } from "@/components/ui/Banner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,6 +39,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${cormorantGaramond.variable} ${montserrat.variable}`}>
         <SmoothScrollProvider>
+          <Banner id="global-development-disclaimer" variant="rainbow">
+            🚀 This project is undergoing changes and updates. Current content is for demonstration purposes only.
+          </Banner>
           <Navbar />
           <CustomCursor />
           <PageTransitionProvider>
