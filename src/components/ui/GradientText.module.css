@@ -1,0 +1,31 @@
+.gradientText {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    -45deg, 
+    var(--color-brand-magenta), 
+    var(--color-sunset), 
+    var(--color-brand-plum), 
+    var(--color-brand-purple),
+    var(--color-sunset)
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradientFlow 8s ease infinite;
+  filter: drop-shadow(0px 2px 12px rgba(255, 255, 255, 0.4));
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

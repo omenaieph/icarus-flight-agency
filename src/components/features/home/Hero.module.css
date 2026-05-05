@@ -100,11 +100,6 @@
 }
 
 .title .accent {
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
   font-style: italic;
   padding: 0.1em 0.1em;
   margin: -0.1em -0.1em;
@@ -112,14 +107,15 @@
 }
 
 .subtitle {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.95);
   max-width: 700px;
   margin-bottom: 48px;
-  line-height: 1.5;
-  font-weight: 400;
+  line-height: 1.6;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .actions {
@@ -129,6 +125,26 @@
   justify-content: center;
   gap: 20px;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .actions > * {
+    width: 100%;
+    justify-content: center;
+  }
+  .title {
+    margin-bottom: 16px;
+  }
+  .subtitle {
+    margin-bottom: 32px;
+  }
+  .badge {
+    margin-bottom: 24px;
+  }
 }
 
 
@@ -194,6 +210,12 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .scrollIndicator {
+    display: none;
+  }
 }
 
 .mouse {

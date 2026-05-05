@@ -2,38 +2,72 @@
 
 import styles from "./DestinationGallery.module.css";
 import { motion } from "framer-motion";
-import { Star, MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight, Plane, Car, Building, Coffee, Eye, Headset } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { TiltCard } from "@/components/ui/TiltCard";
+import { useRouter } from "next/navigation";
 
 const destinations = [
   {
     id: 1,
-    name: "Bali, Indonesia",
-    price: "From R24,500",
-    rating: 4.9,
-    image: "/images/bali.png",
-    description: "Experience the spiritual heart of Indonesia with luxury jungle retreats and private beach clubs."
+    name: "Brazil",
+    price: "R38,900",
+    duration: "08 Nights - 09 Days",
+    image: "/images/Christ the Redeemer.jpg",
+    inclusions: [
+      { icon: Plane, label: "Flights-EX JNB" },
+      { icon: Car, label: "RT Airport Transfers" },
+      { icon: Building, label: "Hotel Stay" },
+      { icon: Coffee, label: "Breakfast" },
+      { icon: Eye, label: "Tours per itinerary" },
+      { icon: Headset, label: "24x7 Support" }
+    ]
   },
   {
     id: 2,
-    name: "Maldives",
-    price: "From R42,000",
-    rating: 5.0,
-    image: "/images/maldives.png",
-    description: "Pure paradise with overwater villas, turquoise lagoons, and world-class underwater dining."
+    name: "Egypt",
+    price: "R39,650",
+    duration: "11 Nights - 12 Days",
+    image: "/images/Karnak Temple.jpg",
+    inclusions: [
+      { icon: Plane, label: "Flights-EX JNB" },
+      { icon: Car, label: "RT Airport Transfers" },
+      { icon: Building, label: "Hotel Stay" },
+      { icon: Coffee, label: "Breakfast" },
+      { icon: Eye, label: "Tours per itinerary" },
+      { icon: Headset, label: "24x7 Support" }
+    ]
   },
   {
     id: 3,
-    name: "Santorini, Greece",
-    price: "From R35,800",
-    rating: 4.8,
-    image: "/images/santorini.png",
-    description: "Breathtaking sunsets over the caldera and whitewashed luxury stays in the heart of Oia."
+    name: "Hong Kong",
+    price: "R29,590",
+    duration: "05 Nights - 06 Days",
+    image: "/images/Victoria Harbour Junk Boat.jpg",
+    inclusions: [
+      { icon: Plane, label: "Flights-EX JNB" },
+      { icon: Car, label: "RT Airport Transfers" },
+      { icon: Building, label: "Hotel Stay" },
+      { icon: Coffee, label: "Breakfast" },
+      { icon: Eye, label: "Tours per itinerary" },
+      { icon: Headset, label: "24x7 Support" }
+    ]
+  },
+  {
+    id: 4,
+    name: "Madagascar",
+    price: "R10,565",
+    duration: "05 Nights - 06 Days",
+    image: "/images/Avenue of the Baobabs.jpg",
+    inclusions: [
+      { icon: Car, label: "RT Airport Transfers" },
+      { icon: Building, label: "Hotel Stay" },
+      { icon: Coffee, label: "Breakfast" },
+      { icon: Eye, label: "Tours per itinerary" },
+      { icon: Headset, label: "24x7 Support" }
+    ]
   }
 ];
-
-import { useRouter } from "next/navigation";
 
 export function DestinationGallery() {
   const router = useRouter();
@@ -72,9 +106,8 @@ export function DestinationGallery() {
             <TiltCard className={styles.card}>
               <div className={styles.imageWrapper} style={{ transform: "translateZ(30px)" }}>
                 <img src={dest.image} alt={dest.name} className={styles.image} />
-                <div className={styles.rating}>
-                  <Star size={14} fill="var(--color-amber)" stroke="var(--color-amber)" />
-                  <span>{dest.rating}</span>
+                <div className={styles.durationPill}>
+                  <span>{dest.duration}</span>
                 </div>
               </div>
               
@@ -86,7 +119,18 @@ export function DestinationGallery() {
                   </div>
                   <div className={styles.price}>{dest.price}</div>
                 </div>
-                <p className={styles.description}>{dest.description}</p>
+                
+                <div className={styles.inclusionsList}>
+                  {dest.inclusions.map((inclusion, i) => {
+                    const Icon = inclusion.icon;
+                    return (
+                      <div key={i} className={styles.inclusionItem}>
+                        <Icon size={16} strokeWidth={1.5} />
+                        <span>{inclusion.label}</span>
+                      </div>
+                    );
+                  })}
+                </div>
                 
                 <MagneticButton className={styles.bookBtn} onClick={() => router.push('/contact')}>
                   Explore Details <ArrowRight size={16} />

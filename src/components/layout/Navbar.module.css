@@ -206,6 +206,12 @@
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    height: 56px;
+    padding: 0 24px;
+    top: calc(12px + var(--banner-height, 0px));
+  }
+
   .links, .cta {
     display: none;
   }

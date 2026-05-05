@@ -26,8 +26,24 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Icarus Infinity | Agentic Flagship",
-  description: "2026 World-Class Luxury Experience. Refractive glassmorphism and private jets.",
+  title: {
+    default: "Icarus Flight Agency | Premium Luxury Travel",
+    template: "%s | Icarus Flight Agency",
+  },
+  description: "Experience unparalleled travel with Icarus Flight Agency. We offer exclusive flights, global accommodations, visa assistance, and travel insurance.",
+  applicationName: "Icarus Flight Agency",
+  openGraph: {
+    siteName: "Icarus Flight Agency",
+    title: "Icarus Flight Agency | Premium Luxury Travel",
+    description: "Experience unparalleled travel with Icarus Flight Agency. We offer exclusive flights, global accommodations, visa assistance, and travel insurance.",
+    type: "website",
+    locale: "en_US",
+  },
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' }
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -36,8 +52,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${cormorantGaramond.variable} ${montserrat.variable}`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${cormorantGaramond.variable} ${montserrat.variable}`} suppressHydrationWarning>
         <SmoothScrollProvider>
           <Banner id="global-development-disclaimer" variant="rainbow">
             🚀 This project is undergoing changes and updates. Current content is for demonstration purposes only.

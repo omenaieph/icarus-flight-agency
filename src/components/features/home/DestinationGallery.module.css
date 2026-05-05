@@ -27,11 +27,11 @@
 }
 
 .grid {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 
 .card {
@@ -65,20 +65,21 @@
   transform: scale(1.1);
 }
 
-.rating {
+.durationPill {
   position: absolute;
   top: 15px;
   right: 15px;
   background: white;
-  padding: 5px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.85rem;
+  gap: 6px;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--color-deep-space);
   box-shadow: 0 4px 10px rgba(81, 41, 102, 0.1);
+  letter-spacing: 0.5px;
 }
 
 .details {
@@ -107,11 +108,30 @@
   font-size: 1.1rem;
 }
 
-.description {
-  font-size: 0.95rem;
-  color: rgba(29, 9, 32, 0.6);
-  line-height: 1.6;
+.inclusionsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-bottom: 24px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(81, 41, 102, 0.08);
+}
+
+.inclusionItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: rgba(29, 9, 32, 0.7);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-align: center;
+  width: calc(33.33% - 8px);
+}
+
+.inclusionItem svg {
+  color: var(--color-brand-magenta);
+  margin-bottom: 2px;
 }
 
 .bookBtn {

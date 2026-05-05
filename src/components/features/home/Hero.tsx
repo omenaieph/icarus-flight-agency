@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { PhoneCall, Mail } from "lucide-react";
 import { BlurReveal } from "@/components/ui/BlurReveal";
+import { GradientText } from "@/components/ui/GradientText";
 
 const backgroundImages = [
   "/images/hero-bg.png",
@@ -74,7 +75,7 @@ export function Hero() {
         </motion.span>
         
         <motion.h1 variants={itemVariants} className={styles.title}>
-          <BlurReveal delay={0.3}>Transcend</BlurReveal> <motion.span className={styles.accent} initial={{opacity: 0, y: 10}} animate={{opacity: 1, y: 0}} transition={{delay: 0.5, duration: 0.6}}>Boundaries</motion.span>
+          <BlurReveal delay={0.3}>Transcend</BlurReveal> <GradientText className={styles.accent} initial={{opacity: 0, y: 10}} animate={{opacity: 1, y: 0}} transition={{delay: 0.5, duration: 0.6}}>Boundaries</GradientText>
         </motion.h1>
         
         <motion.p variants={itemVariants} className={styles.subtitle}>

@@ -3,7 +3,7 @@
 import { PageHero } from "@/components/layout/PageHero";
 import styles from "./Services.module.css";
 import { motion } from "framer-motion";
-import { Plane, Hotel, Map, FileText, Car, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
 const services = [
@@ -11,15 +11,13 @@ const services = [
     id: 1,
     title: "Flight Tickets",
     description: "Whether it's a private jet across the continent or a first-class commercial flight, we handle all your ticketing needs with precision and global connectivity.",
-    icon: <Plane size={48} />,
-    image: "/images/hero-bg.png",
+    image: "/images/flight tickets.jpg",
     features: ["Global Routes", "Priority Boarding", "Competitive Pricing"]
   },
   {
     id: 2,
     title: "Hotel Bookings",
     description: "Access our curated list of 5-star hotels and exclusive luxury resorts. From downtown penthouses to secluded island getaways, we book the best for you.",
-    icon: <Hotel size={48} />,
     image: "/images/luxury-villa.png",
     features: ["Verified Luxury", "Best Price Guarantee", "VIP Amenities"]
   },
@@ -27,7 +25,6 @@ const services = [
     id: 3,
     title: "Tour Packages",
     description: "Handcrafted adventures designed by locals and travel experts. Experience authentic culture, wildlife safaris, and breathtaking landscapes in style.",
-    icon: <Map size={48} />,
     image: "/images/bali.png",
     features: ["Expert Guides", "Private Tours", "Custom Itineraries"]
   },
@@ -35,15 +32,13 @@ const services = [
     id: 4,
     title: "Visa Assistance",
     description: "Navigating international travel requirements can be complex. Our experts provide comprehensive support for your visa applications and travel documents.",
-    icon: <FileText size={48} />,
-    image: "/images/about-hero.png",
+    image: "/images/visa assistance.jpg",
     features: ["Document Review", "Priority Processing", "Expert Advice"]
   },
   {
     id: 5,
     title: "Car Rentals",
     description: "Premium vehicles at your disposal. From luxury SUVs for road trips to chauffeur-driven town cars for seamless city transit.",
-    icon: <Car size={48} />,
     image: "/images/maldives.png",
     features: ["Luxury Fleet", "Airport Pickup", "24/7 Assistance"]
   }
@@ -74,7 +69,6 @@ export default function ServicesPage() {
               >
                 <div className={styles.imageWrapper}>
                   <img src={service.image} alt={service.title} className={styles.image} />
-                  <div className={styles.iconOverlay}>{service.icon}</div>
                 </div>
               </motion.div>
               
