@@ -39,7 +39,7 @@ export function ConciergeAgent() {
                 <div className={styles.suggestions}>
                   <button className={styles.suggestionBtn}>Calculate flight time</button>
                   <button className={styles.suggestionBtn}>Check home availability</button>
-                  <button className={styles.suggestionBtn}>Generate Luxury Itinerary</button>
+                  <button className={styles.suggestionBtn}>Curate Luxury Itinerary</button>
                 </div>
               </div>
             </div>

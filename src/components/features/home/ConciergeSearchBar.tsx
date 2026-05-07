@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, Sparkles } from "lucide-react";
-import styles from "./AgenticSearchBar.module.css";
+import styles from "./ConciergeSearchBar.module.css";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
-export function AgenticSearchBar() {
+export function ConciergeSearchBar() {
   const [query, setQuery] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
@@ -33,7 +33,7 @@ export function AgenticSearchBar() {
         />
         <MagneticButton className={styles.submitBtn}>
           <Search size={18} />
-          <span>Protocol Search</span>
+          <span>Concierge Search</span>
         </MagneticButton>
       </motion.div>
     </div>

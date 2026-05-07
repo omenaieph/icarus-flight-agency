@@ -24,7 +24,7 @@ const stats = [
     label: "Professional Support", 
     value: "24/7", 
     icon: <ShieldCheck size={32} className={styles.iconBrand} />,
-    description: "Our agentic concierge is always ready to assist."
+    description: "Our dedicated concierge team is always ready to assist."
   },
   { 
     label: "Happy Travelers", 

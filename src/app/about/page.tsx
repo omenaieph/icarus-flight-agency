@@ -25,7 +25,7 @@ export default function AboutPage() {
                 Founded in 2021, Icarus Flight Agency was born out of a desire to redefine luxury travel. We believe that travel is not just about the destination, but the seamless, elevated experience that begins the moment you dream of a journey.
               </p>
               <p>
-                Our team of dedicated travel experts and agentic concierge systems work in harmony to ensure every detail of your flight, stay, and adventure is meticulously planned and flawlessly executed.
+                Our team of dedicated travel experts and personalized concierge services work in harmony to ensure every detail of your flight, stay, and adventure is meticulously planned and flawlessly executed.
               </p>
             </div>
             
@@ -42,7 +42,7 @@ export default function AboutPage() {
             >
               <Target size={40} className={styles.icon} />
               <h3>Our Mission</h3>
-              <p>To provide unparalleled travel experiences that transcend boundaries, combining the efficiency of agentic technology with the warmth of human hospitality.</p>
+              <p>To provide unparalleled travel experiences that transcend boundaries, combining the efficiency of innovative travel technology with the warmth of human hospitality.</p>
             </div>
             
             <div 
