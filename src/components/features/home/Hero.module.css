@@ -130,7 +130,7 @@
 @media (max-width: 768px) {
   .actions {
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
   .actions > * {
     width: 100%;
@@ -140,10 +140,13 @@
     margin-bottom: 16px;
   }
   .subtitle {
-    margin-bottom: 32px;
+    margin-bottom: 48px;
   }
   .badge {
     margin-bottom: 24px;
+  }
+  .content {
+    padding-top: 40px;
   }
 }
 

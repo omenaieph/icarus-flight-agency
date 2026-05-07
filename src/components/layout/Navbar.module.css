@@ -207,9 +207,9 @@
 
 @media (max-width: 768px) {
   .navbar {
-    height: 56px;
+    height: 64px;
     padding: 0 24px;
-    top: calc(12px + var(--banner-height, 0px));
+    top: calc(16px + var(--banner-height, 0px));
   }
 
   .links, .cta {
@@ -221,8 +221,8 @@
   }
   
   .logoIcon {
-    height: 48px;
-    transform: scale(1.1);
+    height: 40px;
+    transform: none;
   }
 }
 
