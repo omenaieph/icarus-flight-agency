@@ -26,6 +26,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://icarusflightagency.com"),
   title: {
     default: "Icarus Flight Agency | Premium Luxury Travel",
     template: "%s | Icarus Flight Agency",
@@ -38,6 +39,20 @@ export const metadata: Metadata = {
     description: "Experience unparalleled travel with Icarus Flight Agency. We offer exclusive flights, global accommodations, visa assistance, and travel insurance.",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/icarus-logo-dark-solid.png",
+        width: 1563,
+        height: 1563,
+        alt: "Icarus Flight Agency Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Icarus Flight Agency | Premium Luxury Travel",
+    description: "Experience unparalleled travel with Icarus Flight Agency. We offer exclusive flights, global accommodations, visa assistance, and travel insurance.",
+    images: ["/icarus-logo-dark-solid.png"],
   },
   icons: {
     icon: [
@@ -53,6 +68,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TravelAgency",
+              "name": "Icarus Flight Agency",
+              "url": "https://icarusflightagency.com",
+              "logo": "https://icarusflightagency.com/icarus-logo-dark-solid.png",
+              "image": "https://icarusflightagency.com/icarus-logo-dark-solid.png",
+              "description": "Experience unparalleled travel with Icarus Flight Agency. We offer exclusive flights, global accommodations, visa assistance, and travel insurance."
+            })
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${cormorantGaramond.variable} ${montserrat.variable}`} suppressHydrationWarning>
         <SmoothScrollProvider>
           <Banner id="global-development-disclaimer" variant="rainbow">
