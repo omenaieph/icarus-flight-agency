@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import styles from "./IcarusHomesSnippet.module.css";
 import { motion } from "framer-motion";
 import { Home, Bed, Bath, Users, ArrowRight } from "lucide-react";
@@ -75,7 +76,13 @@ export function IcarusHomesSnippet() {
             transition={{ delay: index * 0.15, duration: 0.5 }}
           >
             <div className={styles.imageWrapper}>
-              <img src={listing.image} alt={listing.name} className={styles.image} />
+              <Image 
+                src={listing.image} 
+                alt={listing.name} 
+                className={styles.image} 
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
               <div className={styles.premiumBadge}>
                 <Home size={14} />
                 <span>Premium Listing</span>

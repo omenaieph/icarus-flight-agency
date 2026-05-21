@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import styles from "./Homes.module.css";
 import { motion } from "framer-motion";
@@ -96,7 +97,14 @@ export default function HomesPage() {
                   transition={{ duration: 0.7, ease: "easeOut" }}
                 >
                   <div className={styles.imageCol}>
-                    <img src={property.image} alt={property.name} className={styles.image} />
+                    <Image 
+                      src={property.image} 
+                      alt={property.name} 
+                      className={styles.image} 
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority={index === 0}
+                    />
                   </div>
                   
                   <div className={styles.contentCol}>

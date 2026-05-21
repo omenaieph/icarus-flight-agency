@@ -33,11 +33,12 @@
   border-radius: 40px;
   overflow: hidden;
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+  height: 500px;
 }
 
 .image {
   width: 100%;
-  height: 500px;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.8s ease;
 }
@@ -119,7 +120,7 @@
     font-size: 2.5rem;
   }
   
-  .imageCol .image {
+  .imageWrapper {
     height: 350px;
   }
   

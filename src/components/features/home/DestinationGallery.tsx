@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import styles from "./DestinationGallery.module.css";
 import { motion } from "framer-motion";
 import { MapPin, ArrowRight, Plane, Car, Building, Coffee, Eye, Headset } from "lucide-react";
@@ -105,7 +106,13 @@ export function DestinationGallery() {
           >
             <TiltCard className={styles.card}>
               <div className={styles.imageWrapper} style={{ transform: "translateZ(30px)" }}>
-                <img src={dest.image} alt={dest.name} className={styles.image} />
+                <Image 
+                  src={dest.image} 
+                  alt={dest.name} 
+                  className={styles.image} 
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
                 <div className={styles.durationPill}>
                   <span>{dest.duration}</span>
                 </div>

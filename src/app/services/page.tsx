@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import styles from "./Services.module.css";
 import { motion } from "framer-motion";
@@ -68,7 +69,14 @@ export default function ServicesPage() {
                 transition={{ duration: 0.8 }}
               >
                 <div className={styles.imageWrapper}>
-                  <img src={service.image} alt={service.title} className={styles.image} />
+                  <Image 
+                    src={service.image} 
+                    alt={service.title} 
+                    className={styles.image} 
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority={index === 0}
+                  />
                 </div>
               </motion.div>
               

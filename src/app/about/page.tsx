@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import styles from "./About.module.css";
 import { motion } from "framer-motion";
@@ -32,7 +33,14 @@ export default function AboutPage() {
             <div 
               className={styles.storyImageWrapper}
             >
-              <img src="/images/bali.png" alt="Luxury Travel Experience" className={styles.storyImage} />
+              <Image 
+                src="/images/bali.png" 
+                alt="Luxury Travel Experience" 
+                className={styles.storyImage} 
+                width={600} 
+                height={450} 
+                priority
+              />
             </div>
           </div>
 
