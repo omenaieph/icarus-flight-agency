@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { Banner } from "@/components/ui/Banner";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -98,6 +99,7 @@ export default function RootLayout({
           <Footer />
         </SmoothScrollProvider>
         <Analytics />
+        <GoogleAnalytics gaId="G-VNSQBDY8DH" />
       </body>
     </html>
   );
