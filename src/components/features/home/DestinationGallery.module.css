@@ -1,11 +1,21 @@
 .gallerySection {
   padding: 100px 5%;
   background: white;
+  overflow: hidden;
+}
+
+.headerContainer {
+  max-width: 1400px;
+  margin: 0 auto 48px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
 }
 
 .header {
-  text-align: center;
-  margin-bottom: 60px;
+  text-align: left;
 }
 
 .subTitle {
@@ -24,34 +34,96 @@
   font-weight: 400;
   color: var(--color-deep-space);
   margin: 0;
+  line-height: 1.1;
 }
 
-.grid {
+.carouselControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(29, 9, 32, 0.14);
+  background: white;
+  color: var(--color-deep-space);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(81, 41, 102, 0.06);
+}
+
+.navBtn:hover:not(:disabled) {
+  background: var(--gradient-luxury);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(188, 44, 114, 0.25);
+}
+
+.navBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.carouselViewport {
   max-width: 1400px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+}
+
+.carouselTrack {
+  display: flex;
   gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 16px 4px 36px;
+  margin: -16px -4px -16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.cardSlide {
+  flex: 0 0 calc((100% - 72px) / 4);
+  min-width: 300px;
+  scroll-snap-align: start;
+  display: flex;
 }
 
 .card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   background: white;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 30px rgba(81, 41, 102, 0.03); /* plum shadow */
+  box-shadow: 0 4px 30px rgba(81, 41, 102, 0.04);
   transition: all 0.4s ease;
-  border: 1px solid rgba(81, 41, 102, 0.05);
+  border: 1px solid rgba(81, 41, 102, 0.06);
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(81, 41, 102, 0.08); /* plum hover shadow */
+  box-shadow: 0 20px 50px rgba(81, 41, 102, 0.1);
+  border-color: rgba(188, 44, 114, 0.2);
 }
 
 .imageWrapper {
   position: relative;
   height: 250px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .image {
@@ -63,6 +135,30 @@
 
 .card:hover .image {
   transform: scale(1.1);
+}
+
+.featuredBadge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(29, 9, 32, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  z-index: 2;
+}
+
+.featuredBadge svg {
+  color: var(--color-sunset);
 }
 
 .durationPill {
@@ -80,16 +176,21 @@
   color: var(--color-deep-space);
   box-shadow: 0 4px 10px rgba(81, 41, 102, 0.1);
   letter-spacing: 0.5px;
+  z-index: 2;
 }
 
 .details {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .topInfo {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 8px;
   margin-bottom: 16px;
 }
 
@@ -99,13 +200,28 @@
   gap: 8px;
   color: var(--color-deep-space);
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+}
+
+.priceGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }
 
 .price {
   color: var(--color-brand-magenta);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+.depositTag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(29, 9, 32, 0.55);
+  margin-top: 2px;
 }
 
 .inclusionsList {
@@ -115,6 +231,7 @@
   margin-bottom: 24px;
   padding-top: 12px;
   border-top: 1px solid rgba(81, 41, 102, 0.08);
+  flex-grow: 1;
 }
 
 .inclusionItem {
@@ -159,9 +276,29 @@
   box-shadow: 0 6px 20px rgba(188, 44, 114, 0.3);
 }
 
-.viewAll {
-  text-align: center;
-  margin-top: 60px;
+.footerBar {
+  max-width: 1400px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.progressTrack {
+  width: 180px;
+  height: 3px;
+  background: rgba(29, 9, 32, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-luxury);
+  transform-origin: left center;
+  transition: transform 0.2s ease-out;
 }
 
 .viewMoreBtn {
@@ -180,17 +317,54 @@
   color: white;
 }
 
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1200px) {
+  .cardSlide {
+    flex: 0 0 calc((100% - 48px) / 3);
+  }
+}
+
+@media (max-width: 960px) {
+  .cardSlide {
+    flex: 0 0 calc((100% - 24px) / 2);
   }
 }
 
 @media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
+  .gallerySection {
+    padding: 72px 5%;
   }
+
+  .headerContainer {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  .navBtn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .cardSlide {
+    flex: 0 0 86%;
+    min-width: 265px;
+  }
+
   .title {
-    font-size: 2.5rem;
+    font-size: 2.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .cardSlide {
+    flex: 0 0 90%;
+    min-width: 250px;
   }
 }

@@ -107,6 +107,7 @@ export function TestimonialsEditorial() {
                     src={current.image}
                     alt={current.author}
                     fill
+                    sizes="48px"
                     className={styles.avatarImage}
                   />
                 </div>

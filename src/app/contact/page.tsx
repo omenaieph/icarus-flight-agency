@@ -49,6 +49,8 @@ export default function ContactPage() {
                       <option value="Flight Booking">Flight Booking</option>
                       <option value="Hotel Booking">Hotel Booking</option>
                       <option value="Luxury Homes">Luxury Homes</option>
+                      <option value="Private Group Transfers">Private Group Transfers</option>
+                      <option value="Tour Packages & Visas">Tour Packages &amp; Visas</option>
                       <option value="Other">Other Inquiry</option>
                     </select>
                   </div>
@@ -80,7 +82,7 @@ export default function ContactPage() {
                 
                 <div className={styles.infoItems}>
                   <div className={styles.infoItem}>
-                    <div className={styles.iconWrapper}><Mail /></div>
+                    <div className={styles.iconWrapper}><Mail size={20} strokeWidth={1.5} /></div>
                     <div className={styles.infoText}>
                       <h4>Email Us</h4>
                       <span>hello@icarusflight.agency</span>
@@ -88,7 +90,7 @@ export default function ContactPage() {
                   </div>
                   
                   <div className={styles.infoItem}>
-                    <div className={styles.iconWrapper}><Phone /></div>
+                    <div className={styles.iconWrapper}><Phone size={20} strokeWidth={1.5} /></div>
                     <div className={styles.infoText}>
                       <h4>Call Us</h4>
                       <span>+27 21 000 0000</span>
@@ -96,7 +98,7 @@ export default function ContactPage() {
                   </div>
                   
                   <div className={styles.infoItem}>
-                    <div className={styles.iconWrapper}><MapPin /></div>
+                    <div className={styles.iconWrapper}><MapPin size={20} strokeWidth={1.5} /></div>
                     <div className={styles.infoText}>
                       <h4>Visit Our Office</h4>
                       <span>Cape Town, South Africa</span>

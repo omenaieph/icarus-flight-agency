@@ -33,8 +33,8 @@ export function Footer() {
             <h4>Travel</h4>
             <Link href="/services">Flights</Link>
             <Link href="/homes">Luxury Stays</Link>
-            <Link href="/services">Visas</Link>
-            <Link href="/services">Packages</Link>
+            <Link href="/services">Private Transfers</Link>
+            <Link href="/services">Visas &amp; Packages</Link>
           </div>
           <div className={styles.linkGroup}>
             <h4>Support</h4>
@@ -48,15 +48,15 @@ export function Footer() {
         <div className={styles.contact}>
           <h4>Get In Touch</h4>
           <div className={styles.contactItem}>
-            <Mail size={18} />
+            <Mail size={17} strokeWidth={1.5} />
             <span>hello@icarusflight.agency</span>
           </div>
           <div className={styles.contactItem}>
-            <Phone size={18} />
+            <Phone size={17} strokeWidth={1.5} />
             <span>+27 21 000 0000</span>
           </div>
           <div className={styles.contactItem}>
-            <MapPin size={18} />
+            <MapPin size={17} strokeWidth={1.5} />
             <span>Cape Town, South Africa</span>
           </div>
         </div>

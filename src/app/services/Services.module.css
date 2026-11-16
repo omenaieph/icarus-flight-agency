@@ -47,6 +47,49 @@
   transform: scale(1.05);
 }
 
+.imageGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(29, 9, 32, 0.55) 0%, rgba(29, 9, 32, 0) 45%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.vehicleBadge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(29, 9, 32, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.badgeIcon {
+  color: var(--color-sunset);
+}
+
+.categoryLabel {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-brand-magenta);
+  margin-bottom: 12px;
+}
+
 .iconOverlay {
   position: absolute;
   top: 40px;
@@ -65,6 +108,7 @@
   font-weight: 400;
   color: var(--color-deep-space);
   margin-bottom: 24px;
+  line-height: 1.1;
 }
 
 .description {
@@ -72,6 +116,53 @@
   color: rgba(29, 9, 32, 0.7);
   line-height: 1.7;
   margin-bottom: 32px;
+}
+
+.offeringsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.offeringCard {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--color-pearl);
+  border: 1px solid rgba(29, 9, 32, 0.06);
+  transition: all 0.3s ease;
+}
+
+.offeringCard:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.offeringCard:hover {
+  border-color: rgba(188, 44, 114, 0.25);
+  box-shadow: 0 10px 24px rgba(29, 9, 32, 0.05);
+  transform: translateY(-2px);
+}
+
+.offeringHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.offeringHeader h4 {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-deep-space);
+  letter-spacing: -0.01em;
+}
+
+.offeringCard p {
+  font-size: 0.88rem;
+  color: rgba(29, 9, 32, 0.65);
+  line-height: 1.5;
+  padding-left: 24px;
 }
 
 .features {
@@ -91,6 +182,7 @@
 
 .check {
   color: var(--color-brand-magenta);
+  flex-shrink: 0;
 }
 
 .ctaBtn {
@@ -112,19 +204,47 @@
   .serviceRow, .serviceRow:nth-child(even) {
     flex-direction: column;
     gap: 40px;
+    margin-bottom: 100px;
+  }
+
+  .imageCol, .contentCol {
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
+  .servicesSection {
+    padding: 64px 5%;
+  }
+
+  .serviceRow, .serviceRow:nth-child(even) {
+    margin-bottom: 72px;
+    gap: 28px;
+  }
+
   .contentCol h2 {
-    font-size: 2.5rem;
+    font-size: 2.35rem;
   }
   
   .imageWrapper {
-    height: 350px;
+    height: 310px;
+    border-radius: 24px;
+  }
+
+  .vehicleBadge {
+    left: 16px;
+    bottom: 16px;
+    padding: 8px 14px;
+    font-size: 0.78rem;
   }
   
-  .features {
+  .features,
+  .offeringsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    justify-content: center;
   }
 }

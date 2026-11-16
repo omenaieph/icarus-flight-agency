@@ -69,7 +69,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} ${cormorantGaramond.variable} ${montserrat.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           type="application/ld+json"
@@ -89,7 +93,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${cormorantGaramond.variable} ${montserrat.variable}`} suppressHydrationWarning>
         <SmoothScrollProvider>
           <Banner id="global-development-disclaimer" variant="rainbow">
-            🚀 This project is undergoing changes and updates. Current content is for demonstration purposes only.
+            Our website is currently being maintained and updated.
           </Banner>
           <Navbar />
           <CustomCursor />

@@ -225,16 +225,28 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 72px 5%;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
   .contentWrapper {
     flex-direction: column;
     gap: 16px;
   }
   
   .indexNumber {
-    font-size: 80px;
+    font-size: 72px;
   }
   
   .quote {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
+  }
+
+  .navigation {
+    margin-top: 48px;
   }
 }

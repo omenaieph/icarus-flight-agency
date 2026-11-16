@@ -10,27 +10,27 @@ const stats = [
     label: "Customer Satisfaction", 
     value: 98,
     suffix: "%", 
-    icon: <Award size={32} className={styles.iconBrand} />,
+    icon: <Award size={30} strokeWidth={1.5} className={styles.iconBrand} />,
     description: "Highest rated premium travel agency in the region."
   },
   { 
     label: "Dream Destinations", 
     value: 100,
     suffix: "+", 
-    icon: <Globe size={32} className={styles.iconBrand} />,
+    icon: <Globe size={30} strokeWidth={1.5} className={styles.iconBrand} />,
     description: "Curated luxury locations across 5 continents."
   },
   { 
     label: "Professional Support", 
     value: "24/7", 
-    icon: <ShieldCheck size={32} className={styles.iconBrand} />,
+    icon: <ShieldCheck size={30} strokeWidth={1.5} className={styles.iconBrand} />,
     description: "Our dedicated concierge team is always ready to assist."
   },
   { 
     label: "Happy Travelers", 
     value: 50,
     suffix: "k+", 
-    icon: <Users size={32} className={styles.iconBrand} />,
+    icon: <Users size={30} strokeWidth={1.5} className={styles.iconBrand} />,
     description: "Creating unforgettable memories since 2021."
   }
 ];

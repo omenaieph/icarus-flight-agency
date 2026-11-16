@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, Sparkles } from "lucide-react";
+import { Search, Compass } from "lucide-react";
 import styles from "./ConciergeSearchBar.module.css";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
@@ -21,7 +21,7 @@ export function ConciergeSearchBar() {
         }}
         transition={{ duration: 0.3 }}
       >
-        <Sparkles size={20} className={styles.iconPrimary} />
+        <Compass size={20} strokeWidth={1.5} className={styles.iconPrimary} />
         <input
           type="text"
           className={styles.input}
@@ -32,7 +32,7 @@ export function ConciergeSearchBar() {
           onBlur={() => setIsFocused(false)}
         />
         <MagneticButton className={styles.submitBtn}>
-          <Search size={18} />
+          <Search size={18} strokeWidth={1.5} />
           <span>Concierge Search</span>
         </MagneticButton>
       </motion.div>

@@ -1,67 +1,335 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import styles from "./Homes.module.css";
-import { motion } from "framer-motion";
-import { ArrowRight, Star } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowRight,
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  MapPin,
+  ArrowUpRight,
+  Check,
+} from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { useRouter } from "next/navigation";
 
-const properties = [
+interface PropertyItem {
+  id: number;
+  name: string;
+  location: string;
+  price: string;
+  images: string[];
+  bedrooms: number;
+  beds: number;
+  baths: number | string;
+  guests: number;
+  description: string;
+  rating: string;
+  reviews: number;
+  highlights: string[];
+  amenities: string[];
+  airbnbUrl: string;
+}
+
+const properties: PropertyItem[] = [
   {
     id: 1,
-    name: "Tiny Home Oasis",
+    name: "Tiny Home Oasis | 1BDRM",
+    location: "Bloubergstrand, Cape Town",
     price: "R 1,600 / night",
-    image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&h=600&fit=crop&q=80&auto=format",
+    images: [
+      "/images/homes/tiny-home-1.jpg",
+      "/images/homes/tiny-home-2.jpg",
+      "/images/homes/tiny-home-3.jpg",
+      "/images/homes/tiny-home-4.jpg",
+      "/images/homes/tiny-home-5.jpg",
+      "/images/homes/tiny-home-6.jpg",
+    ],
+    bedrooms: 1,
     beds: 1,
     baths: 1,
     guests: 2,
-    description: "Escape to our charming tiny home nestled in nature. Perfect for couples seeking a peaceful retreat with modern amenities and stunning views.",
-    rating: "4.9",
-    reviews: 124,
-    highlights: ["Eco-friendly design", "Private outdoor space", "Close to hiking trails"],
-    amenities: ["Free WiFi", "Kitchen", "Parking", "Pet Friendly", "Garden"]
+    description:
+      "Escape to this serene one-bedroom tiny home, perfectly nestled in the picturesque Bloubergstrand area of Cape Town. A bright and vibrant abode that exudes warmth and charm, featuring a private patio with outdoor seating and shared beach access.",
+    rating: "4.87",
+    reviews: 23,
+    highlights: [
+      "Bloubergstrand coastal area",
+      "Private patio & outdoor seating",
+      "Hosted by Esther — Icarus Homes",
+    ],
+    amenities: [
+      "Shared Beach Access",
+      "Full Kitchen",
+      "Fast WiFi & Workspace",
+      "Free Driveway Parking",
+      "Washing Machine",
+      "Private Patio",
+    ],
+    airbnbUrl:
+      "https://www.airbnb.co.uk/rooms/1267579370220903484?unique_share_id=dc4e768e-7da4-44cb-8140-cc71d8cd290b&viralityEntryPoint=1&s=76",
   },
   {
     id: 2,
-    name: "Lux 1BR Apartment",
+    name: "Luxe 1BR Apt | Pool | Table Mountain View | Gym",
+    location: "Cape Town City Centre",
     price: "R 2,860 / night",
-    image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=800&h=600&fit=crop&q=80&auto=format",
-    beds: 1,
-    baths: 1,
-    guests: 4,
-    description: "Sophisticated urban living at its finest. This luxury apartment features premium finishes, city views, and premium amenities in the heart of downtown.",
-    rating: "4.8",
-    reviews: 89,
-    highlights: ["Downtown location", "Premium finishes", "24/7 security"],
-    amenities: ["Free WiFi", "Gym Access", "Concierge", "Rooftop Terrace", "Kitchen"]
+    images: [
+      "/images/homes/luxe-apt-1.jpg",
+      "/images/homes/luxe-apt-2.jpg",
+      "/images/homes/luxe-apt-3.png",
+      "/images/homes/luxe-apt-4.jpg",
+      "/images/homes/luxe-apt-5.jpg",
+      "/images/homes/luxe-apt-6.jpg",
+    ],
+    bedrooms: 1,
+    beds: 2,
+    baths: 1.5,
+    guests: 2,
+    description:
+      "Modern 1-bedroom apartment in the heart of Cape Town with stunning Table Mountain views. Perfect for couples, solo travellers, and business guests seeking a peaceful stay with a rooftop skyline pool, building gym, and fast WiFi steps from top cafés and attractions.",
+    rating: "4.85",
+    reviews: 19,
+    highlights: [
+      "Table Mountain & skyline views",
+      "Rooftop pool & building gym",
+      "Central CBD location",
+    ],
+    amenities: [
+      "Table Mountain View",
+      "Rooftop Pool Access",
+      "Building Gym",
+      "Fully Equipped Kitchen",
+      "Fast WiFi & Workspace",
+      "Smart TV",
+    ],
+    airbnbUrl:
+      "https://www.airbnb.co.uk/rooms/1110971898522945691?unique_share_id=e01e0baf-737d-4ae5-8cd9-1957a4e2f9d0&viralityEntryPoint=1&s=76",
   },
   {
     id: 3,
-    name: "Mountain View Lux 2BD",
+    name: "Cozy Home W/City & Harbour Views in District Six",
+    location: "District Six, Cape Town",
     price: "R 4,120 / night",
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&h=600&fit=crop&q=80&auto=format",
-    beds: 2,
-    baths: 2,
-    guests: 6,
-    description: "Wake up to breathtaking mountain views in this spacious luxury apartment. Features premium amenities, modern design, and direct access to outdoor activities.",
-    rating: "5.0",
-    reviews: 67,
-    highlights: ["Panoramic mountain views", "Ski-in/ski-out access", "Luxury amenities"],
-    amenities: ["Free WiFi", "Hot Tub", "Fireplace", "Ski Storage", "Full Kitchen"]
-  }
+    images: [
+      "/images/homes/district-six-1.jpg",
+      "/images/homes/district-six-2.jpg",
+      "/images/homes/district-six-3.jpg",
+      "/images/homes/district-six-4.jpg",
+      "/images/homes/district-six-5.jpg",
+      "/images/homes/district-six-6.jpg",
+    ],
+    bedrooms: 1,
+    beds: 1,
+    baths: 1,
+    guests: 2,
+    description:
+      "Step into a piece of Cape Town's rich history with this charming, character-filled cottage in the heart of District Six. Blending old-world charm and modern convenience just minutes from the CBD and V&A Waterfront, complete with sunrise harbour views from your private patio.",
+    rating: "4.89",
+    reviews: 18,
+    highlights: [
+      "Sunrise harbour & bay views",
+      "Smeg kitchen with gas stove",
+      "Private garage parking",
+    ],
+    amenities: [
+      "Harbour & Bay Views",
+      "Smeg Gas Kitchen",
+      "Private Garage",
+      "55\" HDTV with Netflix",
+      "Private View Patio",
+      "Fast WiFi & Workspace",
+    ],
+    airbnbUrl:
+      "https://www.airbnb.co.uk/rooms/749180771299176556?unique_share_id=b3417205-9b5b-4aef-8dcc-35ee1873c14d&viralityEntryPoint=1&s=76",
+  },
 ];
 
-import { useRouter } from "next/navigation";
+function PropertyRow({
+  property,
+  index,
+}: {
+  property: PropertyItem;
+  index: number;
+}) {
+  const router = useRouter();
+  const [activePhoto, setActivePhoto] = useState(0);
+  const isReversed = index % 2 !== 0;
+
+  const prevPhoto = () => {
+    setActivePhoto(
+      (prev) => (prev - 1 + property.images.length) % property.images.length
+    );
+  };
+
+  const nextPhoto = () => {
+    setActivePhoto((prev) => (prev + 1) % property.images.length);
+  };
+
+  return (
+    <motion.div
+      className={`${styles.card} ${isReversed ? styles.cardReverse : ""}`}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
+      <div className={styles.imageCol}>
+        <div className={styles.mainImageStage}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activePhoto}
+              className={styles.imageSlide}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35 }}
+            >
+              <Image
+                src={property.images[activePhoto]}
+                alt={`${property.name} — photo ${activePhoto + 1}`}
+                className={styles.image}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={index === 0 && activePhoto === 0}
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          <div className={styles.photoCounter}>
+            {activePhoto + 1} / {property.images.length}
+          </div>
+
+          <div className={styles.galleryControls}>
+            <button
+              type="button"
+              className={styles.navBtn}
+              onClick={prevPhoto}
+              aria-label="Previous photo"
+            >
+              <ChevronLeft size={20} strokeWidth={1.5} />
+            </button>
+            <button
+              type="button"
+              className={styles.navBtn}
+              onClick={nextPhoto}
+              aria-label="Next photo"
+            >
+              <ChevronRight size={20} strokeWidth={1.5} />
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.thumbnailStrip}>
+          {property.images.map((imgSrc, thumbIdx) => (
+            <button
+              key={imgSrc}
+              type="button"
+              className={`${styles.thumbnailBtn} ${
+                thumbIdx === activePhoto ? styles.thumbnailActive : ""
+              }`}
+              onClick={() => setActivePhoto(thumbIdx)}
+              aria-label={`Select photo ${thumbIdx + 1}`}
+            >
+              <Image
+                src={imgSrc}
+                alt={`${property.name} thumbnail ${thumbIdx + 1}`}
+                fill
+                sizes="90px"
+                className={styles.thumbnailImg}
+              />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.contentCol}>
+        <div className={styles.metaTopRow}>
+          <div className={styles.locationBadge}>
+            <MapPin size={14} strokeWidth={1.5} />
+            <span>{property.location}</span>
+          </div>
+
+          <div className={styles.ratingBadge}>
+            <Star size={15} fill="currentColor" />
+            <span>{property.rating}</span>
+            <span className={styles.reviews}>({property.reviews} reviews)</span>
+          </div>
+        </div>
+
+        <h3 className={styles.propertyName}>{property.name}</h3>
+
+        <div className={styles.statsList}>
+          <span>
+            {property.bedrooms}{" "}
+            {property.bedrooms > 1 ? "Bedrooms" : "Bedroom"}
+          </span>
+          <span className={styles.dot}>•</span>
+          <span>
+            {property.beds} {property.beds > 1 ? "Beds" : "Bed"}
+          </span>
+          <span className={styles.dot}>•</span>
+          <span>
+            {property.baths} {Number(property.baths) > 1 ? "Baths" : "Bath"}
+          </span>
+          <span className={styles.dot}>•</span>
+          <span>Up to {property.guests} Guests</span>
+        </div>
+
+        <div className={styles.price}>{property.price}</div>
+
+        <p className={styles.description}>{property.description}</p>
+
+        <div className={styles.highlightsContainer}>
+          {property.highlights.map((highlight, idx) => (
+            <span key={idx} className={styles.highlightBadge}>
+              {highlight}
+            </span>
+          ))}
+        </div>
+
+        <div className={styles.amenitiesGrid}>
+          {property.amenities.map((amenity, idx) => (
+            <div key={idx} className={styles.amenityItem}>
+              <Check size={15} strokeWidth={1.75} className={styles.amenityCheck} />
+              <span>{amenity}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.actions}>
+          <MagneticButton
+            className={styles.bookBtn}
+            onClick={() => router.push("/contact")}
+          >
+            Inquire to Book <ArrowRight size={16} strokeWidth={1.5} />
+          </MagneticButton>
+          <a
+            href={property.airbnbUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.secondaryBtn}
+          >
+            <span>View on Airbnb</span>
+            <ArrowUpRight size={16} strokeWidth={1.5} />
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function HomesPage() {
-  const router = useRouter();
   return (
     <main>
       <PageHero 
         title="Icarus Homes" 
-        subtitle="Carefully curated properties for the elite traveler."
-        image="/images/luxury-villa.png"
+        subtitle="Carefully curated properties in Cape Town for the elite traveler."
+        image="/images/homes/luxe-apt-2.jpg"
       />
       
       <section className={styles.homesSection}>
@@ -80,79 +348,18 @@ export default function HomesPage() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Explore our collection of the world&apos;s most exceptional short-term luxury rentals.
+              Explore our signature collection of short-term luxury stays across Cape Town, hosted by Icarus Homes.
             </motion.p>
           </div>
 
           <div className={styles.list}>
-            {properties.map((property, index) => {
-              const isReversed = index % 2 !== 0;
-              return (
-                <motion.div 
-                  key={property.id}
-                  className={`${styles.card} ${isReversed ? styles.cardReverse : ''}`}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                >
-                  <div className={styles.imageCol}>
-                    <Image 
-                      src={property.image} 
-                      alt={property.name} 
-                      className={styles.image} 
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      priority={index === 0}
-                    />
-                  </div>
-                  
-                  <div className={styles.contentCol}>
-                    <div className={styles.ratingBadge}>
-                      <Star size={16} fill="currentColor" />
-                      <span>{property.rating}</span>
-                      <span className={styles.reviews}>({property.reviews} reviews)</span>
-                    </div>
-
-                    <h3 className={styles.propertyName}>{property.name}</h3>
-                    
-                    <div className={styles.statsList}>
-                      <span>{property.beds} {property.beds > 1 ? 'Beds' : 'Bed'}</span>
-                      <span className={styles.dot}>•</span>
-                      <span>{property.baths} {property.baths > 1 ? 'Baths' : 'Bath'}</span>
-                      <span className={styles.dot}>•</span>
-                      <span>Up to {property.guests} Guests</span>
-                    </div>
-                    
-                    <div className={styles.price}>{property.price}</div>
-                    
-                    <p className={styles.description}>{property.description}</p>
-                    
-                    <div className={styles.highlightsContainer}>
-                      {property.highlights.map((highlight, idx) => (
-                        <span key={idx} className={styles.highlightBadge}>{highlight}</span>
-                      ))}
-                    </div>
-
-                    <div className={styles.amenitiesGrid}>
-                      {property.amenities.map((amenity, idx) => (
-                        <div key={idx} className={styles.amenityItem}>
-                          <div className={styles.checkCircle} />
-                          <span>{amenity}</span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <div className={styles.actions}>
-                      <MagneticButton className={styles.bookBtn} onClick={() => router.push('/contact')}>
-                        Book Now <ArrowRight size={16} />
-                      </MagneticButton>
-                      <button className={styles.secondaryBtn} onClick={() => router.push('/contact')}>View Details</button>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {properties.map((property, index) => (
+              <PropertyRow
+                key={property.id}
+                property={property}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </section>

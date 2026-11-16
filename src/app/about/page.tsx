@@ -4,7 +4,7 @@ import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import styles from "./About.module.css";
 import { motion } from "framer-motion";
-import { Target, Globe, Heart, ShieldCheck } from "lucide-react";
+import { Compass, Globe, Heart, ShieldCheck } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -48,7 +48,7 @@ export default function AboutPage() {
             <div 
               className={styles.card}
             >
-              <Target size={40} className={styles.icon} />
+              <Compass size={38} strokeWidth={1.5} className={styles.icon} />
               <h3>Our Mission</h3>
               <p>To provide unparalleled travel experiences that transcend boundaries, combining the efficiency of innovative travel technology with the warmth of human hospitality.</p>
             </div>
@@ -56,7 +56,7 @@ export default function AboutPage() {
             <div 
               className={styles.card}
             >
-              <Globe size={40} className={styles.icon} />
+              <Globe size={38} strokeWidth={1.5} className={styles.icon} />
               <h3>Our Vision</h3>
               <p>To be the world&apos;s leading luxury travel and lifestyle platform, recognized for our commitment to excellence, innovation, and global connectivity.</p>
             </div>
@@ -68,9 +68,9 @@ export default function AboutPage() {
             </div>
             <div className={styles.valuesGrid}>
               {[
-                { icon: <Heart />, title: "Customer Centric", desc: "Your comfort and satisfaction are at the heart of everything we do." },
-                { icon: <ShieldCheck />, title: "Reliability", desc: "We are committed to providing dependable and secure travel solutions." },
-                { icon: <Globe />, title: "Global Reach", desc: "Connecting you to the most exclusive destinations across the globe." }
+                { icon: <Heart size={24} strokeWidth={1.5} />, title: "Customer Centric", desc: "Your comfort and satisfaction are at the heart of everything we do." },
+                { icon: <ShieldCheck size={24} strokeWidth={1.5} />, title: "Reliability", desc: "We are committed to providing dependable and secure travel solutions." },
+                { icon: <Globe size={24} strokeWidth={1.5} />, title: "Global Reach", desc: "Connecting you to the most exclusive destinations across the globe." }
               ].map((value, i) => (
                 <motion.div 
                   key={i} 

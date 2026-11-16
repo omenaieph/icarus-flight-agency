@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "./Hero.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { PhoneCall, Mail } from "lucide-react";
+import { ArrowUpRight, Compass } from "lucide-react";
 import { BlurReveal } from "@/components/ui/BlurReveal";
 import { GradientText } from "@/components/ui/GradientText";
 
@@ -84,22 +84,32 @@ export function Hero() {
         
         <motion.div variants={itemVariants} className={styles.actions}>
           <MagneticButton className={styles.primaryBtn} aria-label="Start Planning" onClick={() => router.push('/contact')}>
-            <PhoneCall size={18} className={styles.btnIconLeft} />
             <span>Start Planning</span>
+            <ArrowUpRight size={18} strokeWidth={1.5} className={styles.btnIconLeft} />
           </MagneticButton>
           <MagneticButton className={styles.secondaryBtn} aria-label="View Services" onClick={() => router.push('/services')}>
-            <Mail size={18} className={styles.btnIconLeft} />
+            <Compass size={18} strokeWidth={1.5} className={styles.btnIconLeft} />
             <span>View Services</span>
           </MagneticButton>
         </motion.div>
       </motion.div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.button
+        type="button"
         className={styles.scrollIndicator}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        transition={{ delay: 1.4, duration: 1 }}
+        onClick={() => {
+          const nextSection = heroRef.current?.nextElementSibling as HTMLElement | null;
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: "smooth" });
+          } else {
+            window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" });
+          }
+        }}
+        aria-label="Scroll to explore"
       >
         <div className={styles.mouse}>
           <motion.div 
@@ -109,7 +119,7 @@ export function Hero() {
           />
         </div>
         <span>Scroll to Explore</span>
-      </motion.div>
+      </motion.button>
     </section>
   );
 }
